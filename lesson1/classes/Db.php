@@ -24,7 +24,11 @@ class Db
     public function execute($query, $params=[])  // Метод для INSERT, UPDATE
     {
         $sth = $this->dbh->prepare($query);
-        $sth->execute($params);
+        if(!$params){
+            $res = $sth->execute();
+        }else {
+            $res = $sth->execute($params);
+        }
+        return $res;
     }
-
 }

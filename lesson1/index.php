@@ -6,7 +6,7 @@ require __DIR__ . '/models/Article.php';
 
 $articles = Article::findAll();
 $last = Article::findLast(3); // Указываем в скобках интересующее нас количество
-var_dump($articles);
+//var_dump($articles);
 //var_dump($last);
 ?>
 
