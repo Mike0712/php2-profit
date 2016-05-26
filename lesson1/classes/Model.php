@@ -16,14 +16,14 @@ abstract class Model
         return $data;
     }
 
-    public static function finById($id){
+    public static function findById($id){
         $db = new Db();
         $data = $db->query(
             'SELECT * FROM ' . static::$table . ' WHERE `id`=:id',
             [':id'=> $id],
             static::class
         );
-        return $data;
+        return $data[0];
     }
 
     public static function findLast($quantity){ // В переменной передается количество последних новостей, которые требуется вывести

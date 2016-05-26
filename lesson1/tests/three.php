@@ -9,7 +9,7 @@ $articles = Article::findAll();
 $new = count($articles) -2; // Определяем номер первой новости в списке
 while($new <= count($articles)): ?>
 
-    <p><?=Article::finById($new)[0]->title?></p>
+    <p><?=Article::findById($new)[0]->title?></p>
     <?php
     $new++;
 endwhile;

@@ -6,7 +6,7 @@
     require __DIR__ . '/classes/Model.php';
     require __DIR__ . '/models/Article.php';
 
-$article = Article::finById($_GET['id'])[0];
+$article = Article::findById($_GET['id']);
 ?>
 
 <h3><?=$article->lead?></h3>
