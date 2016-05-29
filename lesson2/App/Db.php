@@ -11,7 +11,7 @@ class Db
         $cf = new Config();
         $config = $cf->data;
         $connection = $config['driver'] . ':host=' . $config['host'] . ';dbname=' . $config['dbname'];
-        $this->dbh = new \PDO($connection, 'root', '');
+        $this->dbh = new \PDO($connection, $config['user'], $config['password']);
     }
 
     public function query($sql, $params = [], $class = '')
