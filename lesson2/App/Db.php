@@ -8,7 +8,10 @@ class Db
 
     public function __construct()
     {
-        $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=php2', 'root', '');
+        $cf = new Config();
+        $config = $cf->data;
+        $connection = $config['driver'] . ':host=' . $config['host'] . ';dbname=' . $config['dbname'];
+        $this->dbh = new \PDO($connection, 'root', '');
     }
 
     public function query($sql, $params = [], $class = '')
