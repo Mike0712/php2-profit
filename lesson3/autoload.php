@@ -2,5 +2,9 @@
 
 function __autoload($class)
 {
-    require __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
+    $path = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
+
+    if(is_readable($path)) {
+        require $path;
+    }
 }

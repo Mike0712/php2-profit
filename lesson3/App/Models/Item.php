@@ -1,7 +1,6 @@
 <?php
 
-require __DIR__ . '/Orderable.php';
-require __DIR__ . '/Colors.php';
+namespace App\Models;
 
 class Item
     implements Orderable

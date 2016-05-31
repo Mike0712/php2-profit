@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 require __DIR__ . '/HasWeight.php';
 
 interface Orderable

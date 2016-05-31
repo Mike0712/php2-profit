@@ -1,9 +1,6 @@
 <?php
 
-use App\Models\Article;
+include __DIR__ . '/head.php'; ?>
 
-$article = Article::findById($_GET['id']);
-?>
-
-<h3><?=$article->lead?></h3>
-<p><?=$article->title?></p>
+<h3><?php echo $article->lead ?></h3>
+<p><?php echo $article->title ?></p>

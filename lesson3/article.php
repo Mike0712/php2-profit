@@ -1,4 +1,10 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-include __DIR__ . '/App/templates/article.php';
+use App\Models\Article;
+$article = Article::findById($_GET['id']);
+
+$view = new \App\View();
+$view->article = $article;
+
+$view->display(__DIR__ . '/App/templates/article.php');

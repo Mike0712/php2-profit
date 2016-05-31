@@ -4,9 +4,11 @@ namespace App;
 
 class Db
 {
+    use \App\Singleton;
+
     protected $dbh;
 
-    public function __construct()
+    protected function __construct()
     {
         $config = Config::getParam()->data;
         $connection = $config['driver'] . ':host=' . $config['host'] . ';dbname=' . $config['dbname'];

@@ -14,11 +14,5 @@ class Config
         $this->data = include __DIR__ . '/../files/config.php';
     }
 
-    public static function getParam()
-    {
-        if (null===static::$param){
-            static::$param = new static;
-        }
-        return static::$param;
-    }
+    use \App\Singleton;
 }

@@ -10,7 +10,7 @@ abstract class Model
 
     public static function findAll()
     {
-        $db = new Db();
+        $db = Db::getParam();
         $data = $db->query(
             'SELECT * FROM ' . static::$table,
             [],
@@ -21,7 +21,7 @@ abstract class Model
 
     public static function findById($id)
     {
-        $db = new Db();
+        $db = Db::getParam();
         $data = $db->query(
             'SELECT * FROM ' . static::$table . ' WHERE `id`=:id',
             [':id' => $id],
@@ -34,7 +34,7 @@ abstract class Model
     { // В переменной передается количество последних новостей, которые требуется вывести
         $num = count(self::findAll()) - $quantity; // Определяем порядковый (не индексный) номер элемента массива где лежит начальный объект
         $id = self::findAll()[$num]->id; // Получаем номер id
-        $db = new Db();
+        $db = Db::getParam();
         $data = $db->query(
             'SELECT * FROM ' . static::$table . ' WHERE `id`>=:id',
             [':id' => $id],
@@ -74,7 +74,7 @@ abstract class Model
         (' . implode(', ', $binds) . ')
         ';
 
-        $db = new Db();
+        $db = Db::getParam();
         $db->execute($sql, $params);
         $this->id = $db->insertId();
     }
@@ -95,13 +95,13 @@ abstract class Model
         SET ' . implode(',',$pb). '
         WHERE id=:id';
 
-        $db = new Db();
+        $db = Db::getParam();
         $db->execute($sql, $params);
     }
     public function delete(){
         $sql = 'DELETE FROM ' . static::$table .' WHERE id=:id';
         $params[':id'] = $this->id;
-        $db = new Db();
+        $db = Db::getParam();
         $db->execute($sql, $params);
     }
 }

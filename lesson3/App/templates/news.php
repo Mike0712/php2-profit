@@ -1,28 +1,33 @@
 <?php
 
-use App\Models\Article;
-
-$articles = Article::findAll();
-$last = Article::findLast(3); // Указываем в скобках интересующее нас количество
-//var_dump($articles);
-//var_dump($last);
+include __DIR__ . '/head.php';
 ?>
 
-    <!--Переведём в более пристойный вид-->
+    <!--Блок все новости-->
 
-    <h3>Все новости</h3>
+    <h1>Страница новостей</h1>
+    <h2>Все новости</h2>
 <?php
-foreach ($articles as $article): ?>
-    <p><?=$article->title;?></p>
-    <a href="article.php?id=<?=$article->id?>">Перейти к новости</a>
-    <?php
-endforeach;
-?>
+foreach ($news as $article): ?>
+    <article>
+        <h3><?php echo $article->lead; ?></h3>
 
-    <h3>Три последние новости</h3>
+        <p><?php echo $article->title; ?></p>
+        <a href="article.php?id=<?php echo  $article->id ?>">Перейти к новости</a>
+    </article>
+    <?php
+endforeach; ?>
+
+    <!--    Блок 3 последние новости-->
+    <h2>Три последние новости</h2>
 
 <?php
 foreach ($last as $one): ?>
-    <p><?=$one->title;?></p>
+    <article>
+        <p><?php echo $one->title; ?></p>
+    </article>
     <?php
 endforeach;
+?>
+</body>
+</html>
