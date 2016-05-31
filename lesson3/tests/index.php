@@ -3,9 +3,9 @@
 require __DIR__ . '/../autoload.php';
 
 use App\Models\Article;
-use App\Models\Authors;
+use App\Models\Author;
 
-$authors = new Authors();
-
-//$authors->author = 'Федя Сумкин';
-//$authors->save();
+$authors = Author::findAll();
+$article = Article::findAll();
+var_dump($authors);
+var_dump($article);

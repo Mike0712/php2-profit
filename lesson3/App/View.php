@@ -1,13 +1,14 @@
 <?php
 
+namespace App;
+
 /**
  * Class View
+ * @package App
  *
- * @property $news
- * @property $last
+ * @property \App\View $news
+ * @property \App\View $last
  */
-
-namespace App;
 
 class View
 

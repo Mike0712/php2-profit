@@ -58,7 +58,7 @@ abstract class Model
         $binds = [];
         $params = [];
         foreach ($this as $k => $v) { // Параметры для подстановки в запрос
-            if ('id' == $k) {
+            if('id' == $k) {
                 continue;
             }
             $props[] = $k;
