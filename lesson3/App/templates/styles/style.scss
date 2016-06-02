@@ -1,8 +1,9 @@
 /* Main style file */
-$marg: 10px;
-article {
-  margin-bottom: $marg;
-  margin-top: $marg;
-  border: 1px dotted red;
-  padding: $marg/2;
-}
+
+@import "reset";
+@import "fonts";
+@import "tools";
+@import "button";
+@import "layout";
+@import "bg-color";
+@import "color";

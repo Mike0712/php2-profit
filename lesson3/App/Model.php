@@ -2,8 +2,9 @@
 
 namespace App;
 
-abstract class Model
+abstract class Model implements \ArrayAccess
 {
+    use ArrayAccess;
     protected static $table;
 
     public $id;

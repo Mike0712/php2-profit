@@ -10,9 +10,10 @@ namespace App;
  * @property \App\View $last
  */
 
-class View
+class View implements \ArrayAccess
 
 {
+    use \App\ArrayAccess; // Подключаем реализацию для ArrayAccess
     use \App\SetIssetGet;
 
     public function render($template)

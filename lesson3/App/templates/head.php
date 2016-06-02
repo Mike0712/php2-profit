@@ -5,4 +5,4 @@
     <title>Title</title>
     <link rel="stylesheet" href="/App/templates/styles/style.css" >
 </head>
-<body>
+<body class="wrapper">
