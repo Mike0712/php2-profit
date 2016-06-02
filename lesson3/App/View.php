@@ -10,7 +10,7 @@ namespace App;
  * @property \App\View $last
  */
 
-class View implements \ArrayAccess
+class View implements \ArrayAccess, \Countable
 
 {
     use \App\ArrayAccess; // Подключаем реализацию для ArrayAccess
@@ -32,5 +32,10 @@ class View implements \ArrayAccess
     public function display($template)
     {
         echo $this->render($template);
+    }
+
+    public function count()
+    {
+        return count($this->data);
     }
 }

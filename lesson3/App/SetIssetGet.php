@@ -21,4 +21,6 @@ trait SetIssetGet
     {
         return $this->data[$prop];
     }
+
+
 }
