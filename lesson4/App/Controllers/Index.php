@@ -16,14 +16,4 @@ class Index extends \App\Controller
 
         $this->view->display(__DIR__ . '/../templates/news.php');
     }
-
-    public function actionArticle()
-    {
-        $article = Article::findById($_GET['id']);
-
-        $this->view->article = $article;
-
-        $this->view->display(__DIR__ . '/../templates/article.php');
-    }
-
 }

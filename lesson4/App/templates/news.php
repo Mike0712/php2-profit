@@ -24,7 +24,7 @@ include __DIR__ . '/head.php';
                             echo 'Нет автора';
                         } ?>
                     </p>
-                    <a href="/index/article/?id=<?php echo $article['id'] // ArrayAccess?>">Перейти к новости</a>
+                    <a href="/news/article/?id=<?php echo $article['id'] // ArrayAccess?>">Перейти к новости</a>
                 </article>
             <?php
         endforeach; ?>
@@ -38,7 +38,7 @@ include __DIR__ . '/head.php';
         <?php
         foreach ($last as $one): ?>
             <article class="column-small">
-                <p><a href="/index/article/?id=<?php echo $article['id'] // ArrayAccess?>"><?php echo $one['title'];// ArrayAccess ?></a></p>
+                <p><a href="/news/article/?id=<?php echo $article['id'] // ArrayAccess?>"><?php echo $one['title'];// ArrayAccess ?></a></p>
             </article>
             <?php
         endforeach; ?>

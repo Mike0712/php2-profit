@@ -1,5 +1,5 @@
 <h3>Добавить новость</h3>
-<form action="/App/actions/save.php" method="post">
+<form action="/admin/edit/" method="post">
     <input name="lead" type="text">
     <textarea name="title"></textarea>
     <input name="author_id" type="text">
