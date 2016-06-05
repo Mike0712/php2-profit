@@ -3,7 +3,6 @@
 namespace App;
 
 
-
 class Router
 {
     public function __construct()
@@ -16,10 +15,9 @@ class Router
         $url = $_SERVER['REQUEST_URI'];
         $parts = explode('/', $url);
         $ctrl = $parts[1] ?: 'News';
-        if(is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])){
+        if (is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])) {
             $ctrl = $_GET['ctrl'] ?: 'News';
         }
-        $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
         return $this->perform($ctrl, $parts);
     }
 
