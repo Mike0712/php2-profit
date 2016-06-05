@@ -26,13 +26,12 @@ class Router
         $parts = explode('/', $url);
 
         $ctrl = $parts[1] ?: 'News';
-        $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
-        $controller = new $ctrlClass;
-        $action = $parts[2] ?: $controller->actionDefault;
-
         if(is_readable(__DIR__ . '/../' . $parts[1])){ // Условие для того, чтобы можно было обращаться из броузера к
             return $this->routeGet();                   // файлам лежащим в корне, например к index.php
         }
+        $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
+        $controller = new $ctrlClass;
+        $action = $parts[2] ?: $controller->actionDefault;
 
         $controller->action($action);
     }
@@ -40,10 +39,9 @@ class Router
     protected function routeGet()
     {
         $ctrl = $_GET['ctrl'] ?: 'News';
-        $action = $_GET['act'] ?: 'All';
-
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
         $controller = new $ctrlClass;
+        $action = $_GET['act'] ?: $controller->actionDefault;
         $controller->action($action);
     }
 }
