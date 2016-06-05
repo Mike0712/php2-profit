@@ -7,14 +7,15 @@ use App\Models\Article;
 
 class Admin extends Controller
 {
-    public function actionAll()
+    public $actionDefault = 'Base'; // Создаём свойство экшн по умолчанию для данного контроллера
+    public function actionBase()
     {
         $all = Article::findAll();
         $this->view->all = $all;
         $this->view->display(__DIR__ . '/../templates/admin.php');
     }
 
-    public function actionEdit()
+    public function actionSave()
     {
         $article = new Article();
         foreach($_POST as $k => $value){
@@ -25,7 +26,7 @@ class Admin extends Controller
         }
         $article->save();
 
-        header('Location: /admin/all');
+        header('Location: /admin/');
     }
 
     public function actionDelete()
@@ -34,7 +35,7 @@ class Admin extends Controller
         $article->id = $_GET['id'];
         $article->delete();
 
-        header('Location: /admin/all');
+        header('Location: /admin/');
     }
 
 }

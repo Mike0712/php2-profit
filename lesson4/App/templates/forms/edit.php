@@ -2,7 +2,7 @@
 
 <?php foreach ($all as $data): ?>
 
-    <form action="/admin/edit/" method="post">
+    <form action="/admin/save/" method="post">
 
         <input name="lead" type="text" value="<?php echo $data->lead ?>">
 

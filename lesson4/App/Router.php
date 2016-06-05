@@ -3,14 +3,12 @@
 namespace App;
 
 
+
 class Router
 {
-    protected $ctrl;
-    protected $act;
-    public function __construct($ctrl, $act)
+    public $ctrl = 123;
+    public function __construct()
     {
-        $this->ctrl = $ctrl;
-        $this->act = $act;
         return $this->route();
     }
 
@@ -27,11 +25,15 @@ class Router
         $url = $_SERVER['REQUEST_URI'];
         $parts = explode('/', $url);
 
-        $ctrl = $parts[1] ?: $this->ctrl  ?: 'News';
-        $action = $parts[2] ?: $this->act ?: 'All';
-
+        $ctrl = $parts[1] ?: 'News';
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
         $controller = new $ctrlClass;
+        $action = $parts[2] ?: $controller->actionDefault;
+
+        if(is_readable(__DIR__ . '/../' . $parts[1])){ // Условие для того, чтобы можно было обращаться из броузера к
+            return $this->routeGet();                   // файлам лежащим в корне, например к index.php
+        }
+
         $controller->action($action);
     }
 
