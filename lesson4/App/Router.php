@@ -8,30 +8,26 @@ class Router
 {
     public function __construct()
     {
-        return $this->routeSef();
+        return $this->route();
     }
 
-    protected function routeSef()
+    protected function route()
     {
         $url = $_SERVER['REQUEST_URI'];
         $parts = explode('/', $url);
         $ctrl = $parts[1] ?: 'News';
         if(is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])){
-            return $this->routeGet();
+            $ctrl = $_GET['ctrl'] ?: 'News';
         }
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
-        $controller = new $ctrlClass;
-        $action = $parts[2] ?: $controller->actionDefault;
-
-        $controller->action($action);
+        return $this->perform($ctrl, $parts);
     }
 
-    protected function routeGet()
+    protected function perform($ctrl, $parts)
     {
-        $ctrl = $_GET['ctrl'] ?: 'News';
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
         $controller = new $ctrlClass;
-        $action = $_GET['act'] ?: $controller->actionDefault;
+        $action = $_GET['act'] ?: $parts[2] ?: $controller->actionDefault;
         $controller->action($action);
     }
 }

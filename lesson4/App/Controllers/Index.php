@@ -6,6 +6,7 @@ use App\Models\Article;
 
 class Index extends \App\Controller
 {
+    public $actionDefault = 'Default';
     public function actionDefault()
     {
         $news = Article::findAll();
