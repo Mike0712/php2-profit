@@ -6,7 +6,6 @@ namespace App;
 
 class Router
 {
-    public $ctrl = 123;
     public function __construct()
     {
         return $this->route();
@@ -24,7 +23,6 @@ class Router
     {
         $url = $_SERVER['REQUEST_URI'];
         $parts = explode('/', $url);
-
         $ctrl = $parts[1] ?: 'News';
         if(is_readable(__DIR__ . '/../' . $parts[1])){ // Условие для того, чтобы можно было обращаться из броузера к
             return $this->routeGet();                   // файлам лежащим в корне, например к index.php
