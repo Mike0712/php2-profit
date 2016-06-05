@@ -27,7 +27,7 @@ class SefRouter
 
     protected function perform($ctrl, $last)
     {
-        $controller = new $ctrl;
+        $controller = new $ctrl();
         $action = $_GET['act'] ?: $last ?: $controller->actionDefault;
         $controller->action($action);
     }

@@ -24,7 +24,7 @@ class Router
     protected function perform($ctrl, $parts)
     {
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
-        $controller = new $ctrlClass;
+        $controller = new $ctrlClass();
         $action = $_GET['act'] ?: $parts[2] ?: $controller->actionDefault;
         $controller->action($action);
     }
