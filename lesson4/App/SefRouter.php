@@ -14,6 +14,7 @@ class SefRouter
     {
         $url = $_SERVER['REQUEST_URI'];
         $parts = array_diff(explode('/', $url), ['']);
+        array_unshift($parts, 'App');
         foreach ($parts as $part) {
             $elm[] = ucfirst($part);
         }
