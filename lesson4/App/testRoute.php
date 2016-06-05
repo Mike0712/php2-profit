@@ -3,15 +3,14 @@
 namespace App;
 
 
-
-class Router
+class testRoute
 {
     public function __construct()
     {
-        return $this->routeSef();
+        return $this->route();
     }
 
-    protected function routeSef()
+    protected function route()
     {
         $url = $_SERVER['REQUEST_URI'];
         $parts = explode('/', $url);

@@ -2,4 +2,4 @@
 
 require __DIR__ . '/autoload.php';
 
-$router = new \App\Router();
+$router = new \App\testRoute();
