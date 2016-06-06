@@ -1,2 +1,2 @@
 <?php
-echo 'Доступ закрыт';
+echo $error;

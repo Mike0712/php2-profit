@@ -37,6 +37,7 @@ abstract class Controller
 
     public function action404()
     {
+        $this->view->error = 'Доступ закрыт';
         $this->view->display(__DIR__ . '/templates/404.php');
     }
 }

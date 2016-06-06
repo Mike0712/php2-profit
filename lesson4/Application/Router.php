@@ -26,6 +26,7 @@ class Router
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
         if(!class_exists($ctrlClass)){
             $view = new View();
+            $view->error='Доступ закрыт';
             return $view->display(__DIR__ . '/templates/404.php');
         }
         $controller = new $ctrlClass();
