@@ -24,6 +24,10 @@ class Router
     protected function perform($ctrl, $parts)
     {
         $ctrlClass = '\App\Controllers\\' . ucfirst($ctrl);
+        if(!class_exists($ctrlClass)){
+            $view = new View();
+            return $view->display(__DIR__ . '/templates/404.php');
+        }
         $controller = new $ctrlClass();
         $action = $_GET['act'] ?: $parts[2] ?: $controller->actionDefault;
         $controller->action($action);
