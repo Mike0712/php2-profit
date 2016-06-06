@@ -31,8 +31,7 @@ class Admin extends Controller
 
     public function actionDelete()
     {
-        $article = new Article();
-        $article->id = $_GET['id'];
+        $article = Article::findById($_GET['id']);
         $article->delete();
 
         header('Location: /admin/');
