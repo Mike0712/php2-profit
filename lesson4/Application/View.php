@@ -18,8 +18,10 @@ class View implements \ArrayAccess, \Countable, \Iterator
 
     public function render($template)
     {
-        foreach ($this->data as $k => $v) {
-            $$k = $v;
+        if(!empty($this->data)) {
+            foreach ($this->data as $k => $v) {
+                $$k = $v;
+            }
         };
         ob_start();
         include $template;
