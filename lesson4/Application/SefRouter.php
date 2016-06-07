@@ -37,7 +37,6 @@ class SefRouter
                 $action = array_pop($elm);
                 if(!empty($_GET)){
                     $action = array_pop($elm);
-                 //   $ctrl = '\App\Controllers\\' . array_pop($elm);
                 }
                 $ctrl = implode('\\', $elm);
         }
