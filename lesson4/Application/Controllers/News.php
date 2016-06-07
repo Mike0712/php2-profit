@@ -8,7 +8,7 @@ use App\Models\Article;
 
 class News extends Controller
 {
-    public $actionDefault = 'All'; // Создаём свойство экшн по умолчанию для данного контроллера
+    protected static $actionDefault = 'All'; // Создаём свойство экшн по умолчанию для данного контроллера
     public function actionAll()
     {
         $news = Article::findAll();

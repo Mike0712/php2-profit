@@ -16,16 +16,16 @@ class SefRouter
                 $ctrl = '\App\Controllers\News';
                 break;
             case 1: // Для GET параметров
-                if(is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])){
+                if (is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])) {
                     $controller = ucfirst($_GET['ctrl']) ?: 'News';
                     $action = ucfirst($_GET['act']);
-                }else {
+                } else {
                     $controller = ucfirst($parts[1]) ?: 'News';
                 }
                 $ctrl = '\App\Controllers\\' . $controller;
                 break;
             case 2: // Для обычных адресов типа /ctrl/act/
-                $controller =  ucfirst($parts[1]) ?: 'News';
+                $controller = ucfirst($parts[1]) ?: 'News';
                 $action = ucfirst($parts[2]);
                 $ctrl = '\App\Controllers\\' . $controller;
                 break;
@@ -35,7 +35,7 @@ class SefRouter
                     $elm[] = ucfirst($part);
                 }
                 $action = array_pop($elm);
-                if(!empty($_GET)){
+                if (!empty($_GET)) {
                     $action = array_pop($elm);
                 }
                 $ctrl = implode('\\', $elm);

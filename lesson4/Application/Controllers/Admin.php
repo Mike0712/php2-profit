@@ -7,7 +7,7 @@ use App\Models\Article;
 
 class Admin extends Controller
 {
-    public $actionDefault = 'Base'; // Создаём свойство экшн по умолчанию для данного контроллера
+    protected static $actionDefault = 'Base'; // Создаём свойство экшн по умолчанию для данного контроллера
     public function actionBase()
     {
         $all = Article::findAll();

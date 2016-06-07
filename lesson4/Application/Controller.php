@@ -29,7 +29,7 @@ abstract class Controller
 
     public function action($action)
     {
-        $act = $action ?: $this->actionDefault;
+        $act = $action ?: static::$actionDefault;
         $this->methodName = 'action' . $act;
         $this->access();
         $methodName = $this->methodName;
