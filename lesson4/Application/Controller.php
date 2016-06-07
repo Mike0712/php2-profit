@@ -22,13 +22,15 @@ abstract class Controller
     protected function access()
     {
         if (!method_exists($this, $this->methodName)) {
-            return $this->action404();
+            $this->action404();
+            die;
         }
     }
 
     public function action($action)
     {
-        $this->methodName = 'action' . ucfirst($action);
+        $act = $action ?: $this->actionDefault;
+        $this->methodName = 'action' . $act;
         $this->access();
         $methodName = $this->methodName;
         return $this->$methodName();
