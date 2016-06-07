@@ -1,0 +1,23 @@
+@mixin button($color: lime, $width: 200px, $height: 80px){
+  display: inline-block;
+  margin: 4px;
+  width: $width;
+  height: $height;
+  text-align: center;
+  line-height: $height;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 24px;
+  border: 1px solid #bcbcbc;
+  box-shadow: 0 0 5px #eee;
+  background: orange;
+  font-family: "Ubuntu", Helvetica, Tahoma, Arial, sans-serif;
+
+  &:hover {
+    background: lighten($color, 10%);
+  }
+  &:active {
+    background: darken($color, 10%);
+  }
+}
