@@ -2,7 +2,8 @@
 
 require __DIR__ . '/autoload.php';
 
-$router = new \App\Router(); // Вызываем маршрутизатор
+$router = new \App\SefRouter(); // Вызываем маршрутизатор
+
 $class = $router->route()['ctrl']; // Получаем данные для создания контроллера
 
 if (!class_exists($class)) { // Проверяем наличие контроллера

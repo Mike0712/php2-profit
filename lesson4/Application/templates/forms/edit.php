@@ -14,7 +14,7 @@
 
         <input type="submit" value="Обновить запись">
 
-        <a href="/admin/delete/?id=<?php echo $data->id ?>">Удалить</a>
+        <a href="/controllers/admin/delete/?id=<?php echo $data->id ?>">Удалить</a>
 
     </form>
 

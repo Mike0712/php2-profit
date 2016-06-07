@@ -5,37 +5,45 @@ namespace App;
 
 class SefRouter
 {
-    public function __construct()
-    {
-        return $this->route();
-    }
+    protected $data;
 
-    protected function route()
+    public function route()
     {
         $url = $_SERVER['REQUEST_URI'];
-        $parts = array_diff(explode('/', $url), ['']);
-        array_unshift($parts, 'App');
-        foreach ($parts as $part) {
-            $elm[] = ucfirst($part);
+        $parts = array_diff(explode('/', $url), ['']); // Удаляем пустые элементы
+        switch (count($parts)) {
+            case 0:
+                $ctrl = '\App\Controllers\News';
+                break;
+            case 1: // Для GET параметров
+                if(is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])){
+                    $controller = ucfirst($_GET['ctrl']) ?: 'News';
+                    $action = ucfirst($_GET['act']);
+                }else {
+                    $controller = ucfirst($parts[1]) ?: 'News';
+                }
+                $ctrl = '\App\Controllers\\' . $controller;
+                break;
+            case 2: // Для обычных адресов типа /ctrl/act/
+                $controller =  ucfirst($parts[1]) ?: 'News';
+                $action = ucfirst($parts[2]);
+                $ctrl = '\App\Controllers\\' . $controller;
+                break;
+            default: // Для длинных адресов вида /folder/ctrl/act/ и /folder/folder/ctrl/act/ и т.д.
+                array_unshift($parts, 'App');
+                foreach ($parts as $part) {
+                    $elm[] = ucfirst($part);
+                }
+                $action = array_pop($elm);
+                if(!empty($_GET)){
+                    $action = array_pop($elm);
+                 //   $ctrl = '\App\Controllers\\' . array_pop($elm);
+                }
+                $ctrl = implode('\\', $elm);
         }
-        $last = array_pop($elm);
-        $ctrl = implode('\\', $elm) ?: '\App\Controllers\News';
-        if (count($parts)==1) {
-            $ctrl = '\App\Controllers\\' . ucfirst($_GET['ctrl']) ?: '\App\Controllers\News';
-        }
-        var_dump($ctrl);die;
-        return $this->perform($ctrl, $last);
-    }
 
-    protected function perform($ctrl, $last)
-    {
-        if(!class_exists($ctrl)){
-            $view = new View();
-            $view->error='Доступ закрыт';
-            return $view->display(__DIR__ . '/templates/404.php');
-        }
-        $controller = new $ctrl();
-        $action = $_GET['act'] ?: $last ?: $controller->actionDefault;
-        $controller->action($action);
+        $this->data['ctrl'] = $ctrl;
+        $this->data['action'] = $action;
+        return $this->data;
     }
 }
