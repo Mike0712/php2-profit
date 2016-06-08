@@ -7,6 +7,7 @@ use App\Models\Article;
 class Index extends \App\Controller
 {
     protected static $actionDefault = 'Default';
+
     public function actionDefault()
     {
         $news = Article::findAll();
@@ -16,6 +17,12 @@ class Index extends \App\Controller
         $this->view->last = $last;
 
         $this->view->display(__DIR__ . '/../templates/news.php');
+    }
+
+    public function actionTest()
+    {
+        $ex = new \Exception('Some error');
+        throw $ex;
     }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Model;
+use App\MultiException;
 
 /**
  * Class Article
@@ -34,5 +35,20 @@ class Article extends Model
         if ($prop == 'author') {
             return true;
         } else return false;
+    }
+
+    public function fill($arr)
+    {
+        $errors = new MultiException();
+        if (empty($arr['title'])) {
+            $errors->add(new \Exception('Пустое поле заголовок'));
+        }
+        if (empty($arr['lead'])) {
+            $errors->add(new \Exception('Пустое поле текст новости'));
+        }
+        if(0 != count($errors)){
+            throw $errors;
+        }
+        parent::fill($arr);
     }
 }

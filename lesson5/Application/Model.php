@@ -44,6 +44,16 @@ abstract class Model implements \ArrayAccess
         return $data;
     }
 
+    public function fill($arr)
+    {
+        foreach ($arr as $k => $item) {
+            $this->$k = $item;
+            if (empty($arr[$k])) {
+                $this->$k = null;
+            }
+        }
+    }
+
     public function save() // Метод для сохранения новых или измененных записей
     {
         if (empty($this->id)) {
@@ -59,7 +69,7 @@ abstract class Model implements \ArrayAccess
         $binds = [];
         $params = [];
         foreach ($this as $k => $v) { // Параметры для подстановки в запрос
-            if('id' == $k) {
+            if ('id' == $k) {
                 continue;
             }
             $props[] = $k;
@@ -81,9 +91,10 @@ abstract class Model implements \ArrayAccess
     }
 
     public function update()    // Метод обновления новости
-    {   $pb = [];               // prop $ bind, подразумеваем, что в массиве будет лежать значение props=:bind
-        foreach ($this as $k => $v){
-            if ('id' == $k){
+    {
+        $pb = [];               // prop $ bind, подразумеваем, что в массиве будет лежать значение props=:bind
+        foreach ($this as $k => $v) {
+            if ('id' == $k) {
                 continue;
             }
             $pb[] = $k . '=:' . $k;
@@ -92,15 +103,17 @@ abstract class Model implements \ArrayAccess
         }
 
         $sql = '
-        UPDATE ' . static::$table .'
-        SET ' . implode(',',$pb). '
+        UPDATE ' . static::$table . '
+        SET ' . implode(',', $pb) . '
         WHERE id=:id';
 
         $db = Db::getParam();
         $db->execute($sql, $params);
     }
-    public function delete(){
-        $sql = 'DELETE FROM ' . static::$table .' WHERE id=:id';
+
+    public function delete()
+    {
+        $sql = 'DELETE FROM ' . static::$table . ' WHERE id=:id';
         $params[':id'] = $this->id;
         $db = Db::getParam();
         $db->execute($sql, $params);

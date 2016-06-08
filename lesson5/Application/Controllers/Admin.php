@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controller;
 use App\Models\Article;
+use App\MultiException;
 
 class Admin extends Controller
 {
@@ -17,23 +18,21 @@ class Admin extends Controller
 
     public function actionSave()
     {
-        $article = new Article();
-        foreach($_POST as $k => $value){
-            $article[$k] = $_POST[$k];
-            if(empty($_POST[$k])){
-                $article[$k] = null;
-            }
+        try {
+            $article = new Article();
+            $article->fill($_POST);
+            $article->save();
+            header('Location: /admin/');
+        } catch (MultiException $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/forms/insert.php');
         }
-        $article->save();
-
-        header('Location: /admin/');
     }
 
     public function actionDelete()
     {
         $article = Article::findById($_GET['id']);
         $article->delete();
-
         header('Location: /admin/');
     }
 

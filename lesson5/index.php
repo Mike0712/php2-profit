@@ -2,14 +2,19 @@
 
 require __DIR__ . '/autoload.php';
 
-$router = new \App\SefRouter(); // Вызываем маршрутизатор
+$router = new \App\SefRouter();
 
-$class = $router->route()['ctrl']; // Получаем данные для создания контроллера
+$class = $router->route()['ctrl'];
 
-if (!class_exists($class)) { // Проверяем наличие контроллера
+if (!class_exists($class)) {
     $ctrl = new \App\Controllers\Index();
-    return $ctrl->action404(); // Если нет, то вызываем страницу 404
+    return $ctrl->action404();
 }
-$ctrl = new $class(); // Создаём контроллер
-$ctrl->action($router->route()['action']);  // Вызываем страницу. Если в адресной строке не ввести экшн, то будет вызван
-                                            // экшн конкретного контроллера по умолчанию (\App\Controller.php#L32)
+
+try {
+    $ctrl = new $class();
+    $ctrl->action($router->route()['action']);
+} catch (\PDOException $e) {
+    echo 'Ошибка нах: ' . $e->getMessage();
+    die;
+}
