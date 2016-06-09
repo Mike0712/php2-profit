@@ -27,3 +27,6 @@
 2016-06-09 15:56:03    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: Страница не найдена
 2016-06-09 15:57:22    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: 
 2016-06-09 15:58:45    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 27 Код ошибки HY093 Название ошибки: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2016-06-09 16:20:54    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-09 16:20:54    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-09 16:23:59    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\Admin.php в строке: 49 Код ошибки 0 Название ошибки: Страница не найдена
