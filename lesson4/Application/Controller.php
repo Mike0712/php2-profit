@@ -22,7 +22,7 @@ abstract class Controller
     protected function access()
     {
         if (!method_exists($this, $this->methodName)) {
-            $this->action404();
+            $this->action403();
             die;
         }
     }
@@ -36,9 +36,9 @@ abstract class Controller
         return $this->$methodName();
     }
 
-    public function action404()
+    public function action403()
     {
         $this->view->error = 'Доступ закрыт';
-        $this->view->display(__DIR__ . '/templates/404.php');
+        $this->view->display(__DIR__ . '/templates/403.php');
     }
 }
