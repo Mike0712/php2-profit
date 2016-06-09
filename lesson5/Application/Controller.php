@@ -6,7 +6,7 @@ namespace App;
 use App\View;
 
 abstract class Controller
-{
+{   const DEFAULT_CTRL = 'Index';
     /**
      * @var \App\View
      *
@@ -36,9 +36,15 @@ abstract class Controller
         return $this->$methodName();
     }
 
+    public function NotificationSupport($error)
+    {
+        $this->view->error = $error;
+        $this->view->display(__DIR__ . '/templates/pages/support.php');
+    }
+
     public function action404()
     {
         $this->view->error = 'Доступ закрыт';
-        $this->view->display(__DIR__ . '/templates/404.php');
+        $this->view->display(__DIR__ . '/templates/pages/404.php');
     }
 }

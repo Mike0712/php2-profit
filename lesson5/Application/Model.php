@@ -47,7 +47,7 @@ abstract class Model implements \ArrayAccess
     public function fill($arr)
     {
         foreach ($arr as $k => $item) {
-            $this->$k = $item;
+            $this->$k = trim(strip_tags($item));
             if (empty($arr[$k])) {
                 $this->$k = null;
             }
@@ -101,7 +101,6 @@ abstract class Model implements \ArrayAccess
             $params[':' . $k] = $v;
             $params[':id'] = $this->id;
         }
-
         $sql = '
         UPDATE ' . static::$table . '
         SET ' . implode(',', $pb) . '

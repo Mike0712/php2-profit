@@ -1,21 +1,37 @@
-<h3>Редактировать новости</h3>
+<?php include __DIR__ . '/../standarts/head.php'; ?>
 
-<?php foreach ($all as $data): ?>
+    <div class="container">
 
-    <form action="/admin/save/" method="post">
+        <div class="blog-header">
+            <h1 class="blog-title">Админ-панель</h1>
 
-        <input name="lead" type="text" value="<?php echo $data->lead ?>">
 
-        <textarea name="title"><?php echo $data->title ?></textarea>
+        </div>
 
-        <input name="id" type="hidden" value="<?php echo $data->id ?>">
+        <hr>
+        <h3>Редактировать новость</h3>
+        <?php if (isset($errors)): ?>
+            <?php foreach ($errors as $error): ?>
+                <div class="alert alert-danger">
+                    <?php echo $error->getMessage(); ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
-        <input name="author_id" type="text" value="<?php echo $data->author_id ?>">
+        <div class="col-sm-10 col-sm-offset-0 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <form class="form-group-sm" action="/admin/save/" method="post">
+                    <input name="lead" type="text" class="form-control" placeholder="Заголовок" value="<?php echo $data['lead'];?>">
+                    <br>
+                    <textarea name="title" class="form-control" placeholder="Текст Новости"><?php echo $data['title'];?></textarea>
+                    <br>
+                    <input name="author_id" type="text" class="form-control" placeholder="Номер автора" value="<?php echo $data['author_id'];?>">
+                    <input name="id" type="hidden" value="<?php echo $data['id']?>">
+                    <br>
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Править новость">
 
-        <input type="submit" value="Обновить запись">
-
-        <a href="/controllers/admin/delete/?id=<?php echo $data->id ?>">Удалить</a>
-
-    </form>
-
-<?php endforeach; ?>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php include __DIR__ . '/../standarts/footer.php'; ?>

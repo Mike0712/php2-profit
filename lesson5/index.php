@@ -6,15 +6,21 @@ $router = new \App\SefRouter();
 
 $class = $router->route()['ctrl'];
 
-if (!class_exists($class)) {
-    $ctrl = new \App\Controllers\Index();
-    return $ctrl->action404();
-}
-
 try {
     $ctrl = new $class();
     $ctrl->action($router->route()['action']);
-} catch (\PDOException $e) {
-    echo 'Ошибка нах: ' . $e->getMessage();
-    die;
+} catch (\App\Exceptions\Db $e) {
+    $ctrl = new \App\Controllers\Index();
+    switch ($e->getCode()) {
+        case 1:
+            $error = 'Отсутствует соединение с базой данных';
+            break;
+        case 2:
+            $error = 'Ошибка в запросе';
+            break;
+    }
+    $ctrl->NotificationSupport($error);
+} catch (\App\Exceptions\Error404 $e) {
+    $ctrl = new \App\Controllers\Index();
+    $ctrl->action404();
 }

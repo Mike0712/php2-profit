@@ -16,13 +16,14 @@ class Index extends \App\Controller
         $this->view->news = $news;
         $this->view->last = $last;
 
-        $this->view->display(__DIR__ . '/../templates/news.php');
+        $this->view->display(__DIR__ . '/../templates/index.php');
     }
 
     public function actionTest()
     {
         $ex = new \Exception('Some error');
-        throw $ex;
+        var_dump($ex);
+        //throw $ex;
     }
 
 }
