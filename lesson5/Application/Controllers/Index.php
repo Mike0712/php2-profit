@@ -16,7 +16,7 @@ class Index extends \App\Controller
         $this->view->news = $news;
         $this->view->last = $last;
 
-        $this->view->display(__DIR__ . '/../templates/index.php');
+        $this->view->display(__DIR__ . '/../templates/pages/index.php');
     }
 
     public function actionTest()

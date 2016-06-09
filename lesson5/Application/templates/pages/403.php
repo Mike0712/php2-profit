@@ -5,8 +5,8 @@
     <div class="container">
 
         <div class="blog-header">
-            <h1 class="blog-title">404</h1>
-            <p class="lead blog-description">ошибка в адресе</p>
+            <h1 class="blog-title">403</h1>
+            <p class="lead blog-description">Данная страница недоступна</p>
         </div>
 
         <div class="row">
@@ -14,10 +14,10 @@
             <div class="col-sm-8 blog-main">
                     <div class="blog-post">
 
-                        <h2 class="blog-post-title">Страница не найдена</h2>
+                        <h2 class="blog-post-title">Доступ закрыт</h2>
 
-                        <p>Запрашиваемая Вами страница не найдена, пожалуйста перейдите на главную страницу
-                        нашего сайта и обратитесь к поиску.
+                        <p>Запрашиваемая Вами страница не по какой то причине для Вас не доступна. Перейдите на главную страницу
+                        сайта для поиска других страниц.
                         </p>
 
                         <p class="blog-post-meta"><a href="/index.php">Перейти на главную</a></p>

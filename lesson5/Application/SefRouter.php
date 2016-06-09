@@ -43,6 +43,7 @@ class SefRouter
         }
         if (!class_exists($ctrl)) {
             $ctrl = '\App\Controllers\Index';
+            $action = true; // Для того, чтобы не пройти проверку actionAccess
         }
 
         $this->data['ctrl'] = $ctrl;

@@ -6,7 +6,8 @@ namespace App;
 use App\View;
 
 abstract class Controller
-{   const DEFAULT_CTRL = 'Index';
+{
+    const DEFAULT_CTRL = 'Index';
     /**
      * @var \App\View
      *
@@ -22,8 +23,8 @@ abstract class Controller
     protected function access()
     {
         if (!method_exists($this, $this->methodName)) {
-            $this->action404();
-            die;
+            $this->view->error = 'Доступ закрыт';
+            return $this->view->display(__DIR__ . '/templates/pages/403.php');
         }
     }
 
@@ -34,17 +35,5 @@ abstract class Controller
         $this->access();
         $methodName = $this->methodName;
         return $this->$methodName();
-    }
-
-    public function NotificationSupport($error)
-    {
-        $this->view->error = $error;
-        $this->view->display(__DIR__ . '/templates/pages/support.php');
-    }
-
-    public function action404()
-    {
-        $this->view->error = 'Доступ закрыт';
-        $this->view->display(__DIR__ . '/templates/pages/404.php');
     }
 }

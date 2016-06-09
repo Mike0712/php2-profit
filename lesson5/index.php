@@ -10,7 +10,6 @@ try {
     $ctrl = new $class();
     $ctrl->action($router->route()['action']);
 } catch (\App\Exceptions\Db $e) {
-    $ctrl = new \App\Controllers\Index();
     switch ($e->getCode()) {
         case 1:
             $error = 'Отсутствует соединение с базой данных';
@@ -19,8 +18,9 @@ try {
             $error = 'Ошибка в запросе';
             break;
     }
-    $ctrl->NotificationSupport($error);
+    $view = new \App\View();
+    $view->error = $error;
+    $view->display(__DIR__ . '/Application/templates/pages/support.php');
 } catch (\App\Exceptions\Error404 $e) {
-    $ctrl = new \App\Controllers\Index();
-    $ctrl->action404();
+    (new \App\View())->display(__DIR__ . '/Application/templates/pages/404.php');
 }
