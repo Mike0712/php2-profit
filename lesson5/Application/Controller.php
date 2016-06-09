@@ -24,7 +24,8 @@ abstract class Controller
     {
         if (!method_exists($this, $this->methodName)) {
             $this->view->error = 'Доступ закрыт';
-            return $this->view->display(__DIR__ . '/templates/pages/403.php');
+            $this->view->display(__DIR__ . '/templates/pages/403.php');
+            die;
         }
     }
 

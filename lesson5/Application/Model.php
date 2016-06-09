@@ -76,7 +76,6 @@ abstract class Model implements \ArrayAccess
             $binds[] = ':' . $k;
             $params[':' . $k] = $v;
         }
-
         // Сам запрос
         $sql = '
         INSERT INTO ' . static::$table . '
