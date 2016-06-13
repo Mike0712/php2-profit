@@ -21,12 +21,15 @@
         <div class="col-sm-10 col-sm-offset-0 blog-sidebar">
             <div class="sidebar-module sidebar-module-inset">
                 <form class="form-group-sm" action="/admin/save/" method="post">
-                    <input name="lead" type="text" class="form-control" placeholder="Заголовок" value="<?php echo $data['lead'];?>">
+                    <input name="title" type="text" class="form-control" placeholder="Заголовок"
+                           value="<?php echo $data['lead']; ?>">
                     <br>
-                    <textarea name="title" class="form-control" placeholder="Текст Новости"><?php echo $data['title'];?></textarea>
+                    <textarea name="lead" class="form-control"
+                              placeholder="Текст Новости"><?php echo $data['title']; ?></textarea>
                     <br>
-                    <input name="author_id" type="text" class="form-control" placeholder="Номер автора" value="<?php echo $data['author_id'];?>">
-                    <input name="id" type="hidden" value="<?php echo $data['id']?>">
+                    <input name="author_id" type="text" class="form-control" placeholder="Номер автора"
+                           value="<?php echo $data['author_id']; ?>">
+                    <input name="id" type="hidden" value="<?php echo $data['id'] ?>">
                     <br>
                     <input class="btn btn-lg btn-primary btn-block" type="submit" value="Править новость">
 

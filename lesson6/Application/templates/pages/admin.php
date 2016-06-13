@@ -18,14 +18,14 @@
                 <div class="sidebar-module sidebar-module-inset">
                     <h4>Заголовок</h4>
 
-                    <p><?php echo $item['lead']; ?></p>
+                    <p><?php echo $item['title']; ?></p>
                 </div>
             </div>
             <div class="col-sm-3 col-sm-offset-0 blog-sidebar">
                 <div class="sidebar-module sidebar-module-inset">
                     <h4>Содержание</h4>
 
-                    <p><?php echo $item['title']; ?></p>
+                    <p><?php echo $item['lead']; ?></p>
                 </div>
             </div>
             <div class="col-sm-3 col-sm-offset-0 blog-sidebar">

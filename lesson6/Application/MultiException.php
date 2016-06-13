@@ -37,6 +37,7 @@ class MultiException extends \Exception
     {
         return count($this->errors);
     }
+
     public function getIterator()
     {
         return new \ArrayIterator($this->errors);

@@ -18,11 +18,12 @@ class View implements \ArrayAccess, \Countable, \Iterator
 
     public function render($template)
     {
-        if(!empty($this->data)) {
+        if (!empty($this->data)) {
             foreach ($this->data as $k => $v) {
                 $$k = $v;
             }
         };
+
         ob_start();
         include $template;
         $content = ob_get_contents();
@@ -36,10 +37,31 @@ class View implements \ArrayAccess, \Countable, \Iterator
         echo $this->render($template);
     }
 
+    public function renderTwig($template)
+    {
+        $path = __DIR__ . '/templates';
+        $loader = new \Twig_Loader_Filesystem((new PathFinder($path))->find());
+        $twig = new \Twig_Environment($loader, [
+            'cache' => __DIR__ . '/../cache/'
+        ]);
+
+        ob_start();
+        $content = $twig->render($template, $this->data);
+        ob_end_clean();
+
+        return $content;
+    }
+
+    public function displayTwig($template)
+    {
+        echo $this->renderTwig($template);
+    }
+
     public function count()
     {
         return count($this->data);
     }
+
     // Iterator
     protected $position = 0;
 

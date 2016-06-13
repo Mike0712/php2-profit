@@ -46,7 +46,7 @@ class Article extends Model
         if (empty($arr['lead'])) {
             $errors->add(new \Exception('Пустое поле текст новости'));
         }
-        if(0 != count($errors)){
+        if (0 != count($errors)) {
             throw $errors;
         }
         parent::fill($arr);

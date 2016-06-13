@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Article;
+use App\PathFinder;
 
 class Index extends \App\Controller
 {
@@ -16,14 +17,18 @@ class Index extends \App\Controller
         $this->view->news = $news;
         $this->view->last = $last;
 
-        $this->view->display(__DIR__ . '/../templates/pages/index.php');
+        $this->view->displayTwig('index.html');
     }
 
     public function actionTest()
     {
-        $ex = new \Exception('Some error');
-        var_dump($ex);
-        //throw $ex;
-    }
+        var_dump((new PathFinder(__DIR__ .'/../templates'))->find());die;
+        $news = Article::findAll();
+        $last = Article::findLast(3);
 
+        $this->view->news = $news;
+        $this->view->last = $last;
+
+        $this->view->displayTwig('index.html');
+    }
 }
