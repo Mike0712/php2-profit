@@ -36,11 +36,11 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
     public function block_header($context, array $blocks = array())
     {
         // line 6
-        echo "    <div class=\"blog-header\">
-        <h1 class=\"blog-title\">Учебный новостной сайт</h1>
+        echo "<div class=\"blog-header\">
+    <h1 class=\"blog-title\">Учебный новостной сайт</h1>
 
-        <p class=\"lead blog-description\">Курс PHP-2</p>
-    </div>
+    <p class=\"lead blog-description\">Курс PHP-2</p>
+</div>
 ";
     }
 
@@ -52,30 +52,30 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
         $context['_seq'] = twig_ensure_traversable((isset($context["news"]) ? $context["news"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 15
-            echo "    <div class=\"blog-post\">
+            echo "<div class=\"blog-post\">
 
-        <h2 class=\"blog-post-title\">";
+    <h2 class=\"blog-post-title\">";
             // line 17
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);
             echo "</h2>
 
-        <p>Автор: ";
+    <p>Автор: ";
             // line 19
             echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute($context["article"], "author", array()), "author", array())) ? ($this->getAttribute($this->getAttribute($context["article"], "author", array()), "author", array())) : ("Нет автора")), "html", null, true);
             echo "</p>
 
-        <p class=\"blog-post-meta\">Узнать больше <a
-                href=\"/controllers/news/article/?id=";
+    <p class=\"blog-post-meta\">Узнать больше <a
+            href=\"/controllers/news/article/?id=";
             // line 22
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "id", array()), "html", null, true);
             echo "\">Перейти к новости</a>
-        </p>
+    </p>
 
-        <p>";
+    <p>";
             // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "lead", array()), "html", null, true);
             echo "</p>
-    </div><!-- /.blog-post -->
+</div><!-- /.blog-post -->
 ";
         }
         $_parent = $context['_parent'];
@@ -103,26 +103,26 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 /* {% block title %}Новостной портал{% endblock %}*/
 /* */
 /* {% block header %}*/
-/*     <div class="blog-header">*/
-/*         <h1 class="blog-title">Учебный новостной сайт</h1>*/
+/* <div class="blog-header">*/
+/*     <h1 class="blog-title">Учебный новостной сайт</h1>*/
 /* */
-/*         <p class="lead blog-description">Курс PHP-2</p>*/
-/*     </div>*/
+/*     <p class="lead blog-description">Курс PHP-2</p>*/
+/* </div>*/
 /* {% endblock %}*/
 /* */
 /* {% block content %}*/
 /* {% for article in news %}*/
-/*     <div class="blog-post">*/
+/* <div class="blog-post">*/
 /* */
-/*         <h2 class="blog-post-title">{{ article.title }}</h2>*/
+/*     <h2 class="blog-post-title">{{ article.title }}</h2>*/
 /* */
-/*         <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>*/
+/*     <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>*/
 /* */
-/*         <p class="blog-post-meta">Узнать больше <a*/
-/*                 href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>*/
-/*         </p>*/
+/*     <p class="blog-post-meta">Узнать больше <a*/
+/*             href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>*/
+/*     </p>*/
 /* */
-/*         <p>{{ article.lead }}</p>*/
-/*     </div><!-- /.blog-post -->*/
+/*     <p>{{ article.lead }}</p>*/
+/* </div><!-- /.blog-post -->*/
 /* {% endfor %}*/
 /* {% endblock %}*/

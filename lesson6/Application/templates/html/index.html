@@ -3,26 +3,26 @@
 {% block title %}Новостной портал{% endblock %}
 
 {% block header %}
-    <div class="blog-header">
-        <h1 class="blog-title">Учебный новостной сайт</h1>
+<div class="blog-header">
+    <h1 class="blog-title">Учебный новостной сайт</h1>
 
-        <p class="lead blog-description">Курс PHP-2</p>
-    </div>
+    <p class="lead blog-description">Курс PHP-2</p>
+</div>
 {% endblock %}
 
 {% block content %}
 {% for article in news %}
-    <div class="blog-post">
+<div class="blog-post">
 
-        <h2 class="blog-post-title">{{ article.title }}</h2>
+    <h2 class="blog-post-title">{{ article.title }}</h2>
 
-        <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>
+    <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>
 
-        <p class="blog-post-meta">Узнать больше <a
-                href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>
-        </p>
+    <p class="blog-post-meta">Узнать больше <a
+            href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>
+    </p>
 
-        <p>{{ article.lead }}</p>
-    </div><!-- /.blog-post -->
+    <p>{{ article.lead }}</p>
+</div><!-- /.blog-post -->
 {% endfor %}
 {% endblock %}
