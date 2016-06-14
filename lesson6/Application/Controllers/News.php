@@ -30,6 +30,7 @@ class News extends Controller
             throw new Error404();
         }
         $last = Article::findLast(3);
+        $news = Article::findAll();
         $this->view->article = $article;
         $this->view->last = $last;
 
