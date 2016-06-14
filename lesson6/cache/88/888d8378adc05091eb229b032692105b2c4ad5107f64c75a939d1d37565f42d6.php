@@ -64,17 +64,12 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
             echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute($context["article"], "author", array(), "any", false, true), "author", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute($this->getAttribute($context["article"], "author", array(), "any", false, true), "author", array()), "Нет автора")) : ("Нет автора")), "html", null, true);
             echo "</p>
 
-    <p class=\"blog-post-meta\">Узнать больше <a
-            href=\"/controllers/news/article/?id=";
-            // line 22
-            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "id", array()), "html", null, true);
-            echo "\">Перейти к новости</a>
-    </p>
-
     <p>";
-            // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "lead", array()), "html", null, true);
-            echo "</p>
+            // line 21
+            echo twig_escape_filter($this->env, twig_slice($this->env, $this->getAttribute($context["article"], "lead", array()), 0, 200), "html", null, true);
+            echo " <a href=\"/controllers/news/article/?id=";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "id", array()), "html", null, true);
+            echo "\">Читать подробнее</a></p>
 </div><!-- /.blog-post -->
 ";
         }
@@ -95,7 +90,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 
     public function getDebugInfo()
     {
-        return array (  76 => 25,  70 => 22,  64 => 19,  59 => 17,  55 => 15,  51 => 14,  48 => 13,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  69 => 21,  64 => 19,  59 => 17,  55 => 15,  51 => 14,  48 => 13,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 }
 /* {% extends 'main.html' %}*/
@@ -118,11 +113,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 /* */
 /*     <p>Автор: {{ article.author.author | default('Нет автора') }}</p>*/
 /* */
-/*     <p class="blog-post-meta">Узнать больше <a*/
-/*             href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>*/
-/*     </p>*/
-/* */
-/*     <p>{{ article.lead }}</p>*/
+/*     <p>{{ article.lead | slice(0,200) }} <a href="/controllers/news/article/?id={{article.id}}">Читать подробнее</a></p>*/
 /* </div><!-- /.blog-post -->*/
 /* {% endfor %}*/
 /* {% endblock %}*/

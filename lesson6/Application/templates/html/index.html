@@ -18,11 +18,7 @@
 
     <p>Автор: {{ article.author.author | default('Нет автора') }}</p>
 
-    <p class="blog-post-meta">Узнать больше <a
-            href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>
-    </p>
-
-    <p>{{ article.lead }}</p>
+    <p>{{ article.lead | slice(0,200) }} <a href="/controllers/news/article/?id={{article.id}}">Читать подробнее</a></p>
 </div><!-- /.blog-post -->
 {% endfor %}
 {% endblock %}
