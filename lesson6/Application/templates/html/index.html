@@ -20,5 +20,7 @@
 
     <p>{{ article.lead | slice(0,200) }} <a href="/controllers/news/article/?id={{article.id}}">Читать подробнее</a></p>
 </div><!-- /.blog-post -->
+{% else %}
+    <p>Пока статей нет!<p>
 {% endfor %}
 {% endblock %}

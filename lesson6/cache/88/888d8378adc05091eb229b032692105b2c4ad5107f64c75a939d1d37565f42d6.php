@@ -50,6 +50,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
         // line 14
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["news"]) ? $context["news"] : null));
+        $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 15
             echo "<div class=\"blog-post\">
@@ -72,6 +73,12 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
             echo "\">Читать подробнее</a></p>
 </div><!-- /.blog-post -->
 ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 24
+            echo "    <p>Пока статей нет!<p>
+";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
@@ -90,7 +97,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 
     public function getDebugInfo()
     {
-        return array (  69 => 21,  64 => 19,  59 => 17,  55 => 15,  51 => 14,  48 => 13,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
+        return array (  80 => 24,  70 => 21,  65 => 19,  60 => 17,  56 => 15,  51 => 14,  48 => 13,  39 => 6,  36 => 5,  30 => 3,  11 => 1,);
     }
 }
 /* {% extends 'main.html' %}*/
@@ -115,5 +122,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 /* */
 /*     <p>{{ article.lead | slice(0,200) }} <a href="/controllers/news/article/?id={{article.id}}">Читать подробнее</a></p>*/
 /* </div><!-- /.blog-post -->*/
+/* {% else %}*/
+/*     <p>Пока статей нет!<p>*/
 /* {% endfor %}*/
 /* {% endblock %}*/
