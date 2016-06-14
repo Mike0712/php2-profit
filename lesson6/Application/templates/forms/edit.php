@@ -22,10 +22,10 @@
             <div class="sidebar-module sidebar-module-inset">
                 <form class="form-group-sm" action="/admin/save/" method="post">
                     <input name="title" type="text" class="form-control" placeholder="Заголовок"
-                           value="<?php echo $data['lead']; ?>">
+                           value="<?php echo $data['title']; ?>">
                     <br>
                     <textarea name="lead" class="form-control"
-                              placeholder="Текст Новости"><?php echo $data['title']; ?></textarea>
+                              placeholder="Текст Новости"><?php echo $data['lead']; ?></textarea>
                     <br>
                     <input name="author_id" type="text" class="form-control" placeholder="Номер автора"
                            value="<?php echo $data['author_id']; ?>">
