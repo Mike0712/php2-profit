@@ -12,7 +12,7 @@
 
 {% block content %}
 <div class="blog-post">
-    <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>
+    <p>Автор: {{ article.author.author | default('Нет автора') }}</p>
     <p>{{ article.lead }}</p>
 </div><!-- /.blog-post -->
 {% endblock %}

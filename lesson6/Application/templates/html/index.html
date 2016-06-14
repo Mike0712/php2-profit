@@ -16,7 +16,7 @@
 
     <h2 class="blog-post-title">{{ article.title }}</h2>
 
-    <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>
+    <p>Автор: {{ article.author.author | default('Нет автора') }}</p>
 
     <p class="blog-post-meta">Узнать больше <a
             href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>

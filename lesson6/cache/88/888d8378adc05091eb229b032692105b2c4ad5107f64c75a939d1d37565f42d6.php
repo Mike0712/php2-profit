@@ -61,7 +61,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 
     <p>Автор: ";
             // line 19
-            echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute($context["article"], "author", array()), "author", array())) ? ($this->getAttribute($this->getAttribute($context["article"], "author", array()), "author", array())) : ("Нет автора")), "html", null, true);
+            echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute($context["article"], "author", array(), "any", false, true), "author", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute($this->getAttribute($context["article"], "author", array(), "any", false, true), "author", array()), "Нет автора")) : ("Нет автора")), "html", null, true);
             echo "</p>
 
     <p class=\"blog-post-meta\">Узнать больше <a
@@ -116,7 +116,7 @@ class __TwigTemplate_c03b5483e2a387415e0d21f53b9edf847dbafd910492a279263a4efc8b7
 /* */
 /*     <h2 class="blog-post-title">{{ article.title }}</h2>*/
 /* */
-/*     <p>Автор: {{ article.author.author ?: 'Нет автора'}}</p>*/
+/*     <p>Автор: {{ article.author.author | default('Нет автора') }}</p>*/
 /* */
 /*     <p class="blog-post-meta">Узнать больше <a*/
 /*             href="/controllers/news/article/?id={{article.id}}">Перейти к новости</a>*/
