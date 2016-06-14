@@ -18,6 +18,7 @@ class News extends Controller
 
         $this->view->news = $news;
         $this->view->last = $last;
+        $this->view->page = $_GET['page'] ?: 1; // Для реализации пагинации на главной
 
         $this->view->displayTwig('index.html');
     }

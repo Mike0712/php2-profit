@@ -17,7 +17,7 @@ class SefRouter
                 $ctrl = '\App\Controllers\News';
                 break;
             case 1: // Для GET параметров
-                if (is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl'])) {
+                if (is_readable(__DIR__ . '/../' . $parts[1]) || isset($_GET['ctrl']) || isset($_GET['page'])) {
                     $controller = ucfirst($_GET['ctrl']) ?: 'News';
                     $action = ucfirst($_GET['act']);
                 } else {

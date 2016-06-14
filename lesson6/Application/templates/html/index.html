@@ -11,7 +11,9 @@
 {% endblock %}
 
 {% block content %}
-{% for article in news %}
+{% set articles =  attribute(news | batch(5), page-1) %}
+
+{% for article in articles %}
 <div class="blog-post">
 
     <h2 class="blog-post-title">{{ article.title }}</h2>
@@ -19,8 +21,28 @@
     <p>Автор: {{ article.author.author | default('Нет автора') }}</p>
 
     <p>{{ article.lead | slice(0,200) }} <a href="/controllers/news/article/?id={{article.id}}">Читать подробнее</a></p>
-</div><!-- /.blog-post -->
+</div>
 {% else %}
     <p>Пока статей нет!<p>
 {% endfor %}
 {% endblock %}
+    {% block nav %}
+    <nav>
+        <ul class="pager">
+            {% set count =  news | batch(5) | length %}
+                {% set prev = page-1 %}
+                    {% if prev < 1 %}
+                        {% set prev = count %}
+                    {% endif %}
+            {% set next = page+1 %}
+                {% if next > count %}
+                    {% set next = 1 %}
+                {% endif %}
+            <li><a href="?page={{prev}}">Предыдущая</a></li>
+                {% for num in 1 .. count %}
+                    <a href="?page={{num}}">{{num}}</a>
+                {% endfor %}
+            <li><a href="?page={{next}}">Следующая</a></li>
+        </ul>
+    </nav>
+    {% endblock %}
