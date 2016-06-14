@@ -10,8 +10,8 @@
             {% endif %}
 
         <li><a href="?page={{prev}}">Предыдущая</a></li>
-        {% for num in 1 .. count %}
-        <a href="?page={{num}}">{{num}}</a>
-        {% endfor %}
+            {% for num in 1 .. count %}
+                <a href="?page={{num}}">{{num}}</a>
+            {% endfor %}
         <li><a href="?page={{next}}">Следующая</a></li>
 {% endmacro %}

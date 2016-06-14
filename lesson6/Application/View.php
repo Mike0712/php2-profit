@@ -41,9 +41,9 @@ class View implements \ArrayAccess, \Countable, \Iterator
     {
         $path = __DIR__ . '/templates';
         $loader = new \Twig_Loader_Filesystem((new PathFinder($path))->find());
-        $twig = new \Twig_Environment($loader/*, [
+        $twig = new \Twig_Environment($loader, [
             'cache' => __DIR__ . '/../cache/'
-        ]*/);
+        ]);
 
         ob_start();
         $content = $twig->render($template, $this->data);
