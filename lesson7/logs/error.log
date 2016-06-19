@@ -1,0 +1,41 @@
+2016-06-09 13:02:12
+2016-06-09 13:02:20
+2016-06-09 13:02:25
+2016-06-09 13:02:27
+2016-06-09 13:02:28
+2016-06-09 13:39:05    Ошибка в файле:  в строке: 19 Код ошибки 1
+2016-06-09 13:43:27    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1
+2016-06-09 13:52:08    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1
+2016-06-09 14:30:07    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 18 Код ошибки 1 Название ошибки:
+2016-06-09 14:31:28    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 18 Код ошибки 1 Название ошибки: 
+2016-06-09 14:32:09    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 18 Код ошибки 1 Название ошибки: 
+2016-06-09 14:33:54    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 16 Код ошибки 1049 Название ошибки: SQLSTATE[HY000] [1049] Unknown database 'php21'
+2016-06-09 14:33:54    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1 Название ошибки: 
+2016-06-09 14:36:28    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 16 Код ошибки 1049 Название ошибки: SQLSTATE[HY000] [1049] Unknown database 'php21'
+2016-06-09 14:36:28    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1 Название ошибки: 
+2016-06-09 14:37:30    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 16 Код ошибки 1049 Название ошибки: SQLSTATE[HY000] [1049] Unknown database 'php21'
+2016-06-09 14:37:30    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1 Название ошибки: 
+2016-06-09 14:39:43    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 16 Код ошибки 1049 Название ошибки: SQLSTATE[HY000] [1049] Unknown database 'php21'
+2016-06-09 14:39:43    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1 Название ошибки: Отсутствует соединение с базой данных
+2016-06-09 14:43:01    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 16 Код ошибки 1049 Название ошибки: SQLSTATE[HY000] [1049] Unknown database 'php21'
+2016-06-09 14:43:01    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 19 Код ошибки 1 Название ошибки: Отсутствует соединение с базой данных
+2016-06-09 15:07:17    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 18 Код ошибки 1 Название ошибки: Отсутствует соединение с базой данных
+2016-06-09 15:23:19    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 29 Код ошибки 2 Название ошибки: Ошибка в запросе
+2016-06-09 15:26:40    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 45 Код ошибки 2 Название ошибки: Ошибка в запросе
+2016-06-09 15:34:14    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 43 Код ошибки 21S01 Название ошибки: 
+2016-06-09 15:39:21    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 43 Код ошибки 21S01 Название ошибки: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+2016-06-09 15:56:03    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-09 15:57:22    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: 
+2016-06-09 15:58:45    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Db.php в строке: 27 Код ошибки HY093 Название ошибки: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2016-06-09 16:20:54    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-09 16:20:54    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\News.php в строке: 28 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-09 16:23:59    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\Admin.php в строке: 49 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-09 16:31:01    Ошибка в файле: C:\public_html\php2-profit\lesson5\Application\Controllers\Admin.php в строке: 49 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-13 00:51:06    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 29 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-13 00:51:12    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 29 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-13 00:51:57    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 29 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-13 00:53:47    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 29 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-13 00:54:53    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 29 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-14 23:43:10    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 30 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-14 23:43:16    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 30 Код ошибки 0 Название ошибки: Страница не найдена
+2016-06-14 23:43:35    Ошибка в файле: C:\public_html\php2-profit\lesson6\Application\Controllers\News.php в строке: 30 Код ошибки 0 Название ошибки: Страница не найдена

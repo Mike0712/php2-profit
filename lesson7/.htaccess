@@ -1,0 +1,9 @@
+# http://php2.les4/index.php?page=Index/Default
+# -> http://php2.les4/index.php
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^.*$ index.php [QSA,L]
