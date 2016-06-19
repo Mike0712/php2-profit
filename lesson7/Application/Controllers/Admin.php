@@ -17,7 +17,7 @@ class Admin extends Controller
         $table = new AdminDataTable(Article::findAll(),
             [
                 'Id Новости' => function ($u) {
-                    return 'Id ' . $u->id;
+                    return $u->id;
                 },
                 'Заголовок' => function ($u) {
                     return 'Тема: ' . $u->title;
@@ -30,7 +30,7 @@ class Admin extends Controller
                 },
             ]
         );
-        $this->view->data = $table->render();
+        $this->view->table = $table->render();
         $this->view->display(__DIR__ . '/../templates/pages/admin.php');
     }
 

@@ -23,23 +23,12 @@ class Index extends \App\Controller
 
     public function actionTest()
     {
-        $table = new AdminDataTable(Article::findAll(),
-            [
-                'Id Новости' => function ($u) {
-                    return $u->id;
-                },
-                'Заголовок' => function ($u) {
-                    return $u->title;
-                },
-                'Содержание' => function ($u) {
-                    return $u->lead;
-                },
-                'Автор' => function ($u) {
-                    return $u->author_id;
-                },
-            ]
-        );
-        $this->view->render = $table->render();
+        $news = Article::findByGen();
+        $last = Article::findLast(3);
+
+        $this->view->news = $news;
+        $this->view->last = $last;
+
         $this->view->display(__DIR__ . '/../templates/pages/test.php');
     }
 }

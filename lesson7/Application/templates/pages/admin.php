@@ -12,32 +12,27 @@
         </div>
 
         <hr>
-
-        <?php
-        $id = 0;
-        while ($id < count($data['Id Новости'])):?>
-            <div class="row">
-                <?php foreach ($data as $title => $item): ?>
-                    <div class="col-sm-2 col-sm-offset-0 blog-sidebar">
-                        <div class="sidebar-module sidebar-module-inset">
-                            <h4><?php echo $title; ?></h4>
-
-                            <p><?php echo substr($item[$id], 0, 206); ?></p>
-                        </div>
-                    </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <?php foreach($table[0] as $title => $r): ?>
+                        <th><?echo $title?></th>
+                    <?php endforeach ?>
+                        <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($table as $row):?>
+                    <tr>
+                        <?php foreach($row as $cell): ?>
+                            <td><?echo substr($cell, 0, 200)?></td>
+                        <?php endforeach ?>
+                            <td><p><a href="/controllers/admin/edit/?id=<?php echo $row['Id Новости'] ?>">Редактировать</a></p>
+                                <p><a href="/controllers/admin/delete/?id=<?php echo $row['Id Новости'] ?>">Удалить</a></p></td>
+                    </tr>
                 <?php endforeach ?>
-                <div class="col-sm-2 col-sm-offset-0 blog-sidebar">
-                    <div class="sidebar-module sidebar-module-inset">
-                        <h4>Действие</h4>
-
-                        <p><a href="/controllers/admin/edit/?id=<?php echo $data['Id Новости'][$id] ?>">Редактировать</a></p>
-
-                        <p><a href="/controllers/admin/delete/?id=<?php echo $data['Id Новости'][$id] ?>">Удалить</a></p>
-                    </div>
-                </div>
-            </div>
-            <?php $id++;
-        endwhile; ?>
+            </tbody>
+        </table>
 
     </div>
 

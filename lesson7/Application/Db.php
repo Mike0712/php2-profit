@@ -49,10 +49,8 @@ class Db
             return $sth->fetchAll();
         } else {
             $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
-            $k = 0;
-            while ($sth->fetch()) {
-                yield $k =>$sth->fetch();
-                $k++;
+            while ($one = $sth->fetch()) {
+                yield $one;
             }
         }
     }
